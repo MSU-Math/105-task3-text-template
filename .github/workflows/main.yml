@@ -43,8 +43,8 @@ jobs:
       - name: Компиляция
         run: make coverage
 
-      - name: Вызов без аргументов
-        run: ./main
+      - name: Тестирование
+        run: ./test.sh
     
       - name: Анализ уровня покрытия кода
         run: lcov --capture --directory . --no-external --output-file coverage.info
