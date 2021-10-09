@@ -7,7 +7,10 @@ all: CFLAGS := $(CFLAGS) -g -fsanitize=address -fsanitize=leak -fsanitize=undefi
 coverage: CFLAGS := $(CFLAGS) -g -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=null -fsanitize=bounds-strict -fstack-protector-all -fprofile-arcs -ftest-coverage
 werror: CFLAGS := $(CFLAGS) -Werror -g -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=null -fsanitize=bounds-strict -fstack-protector-all
 
-CXXFLAGS := $(CFLAGS)
+debug: CXXFLAGS := $(CFLAGS)
+all: CXXFLAGS := $(CFLAGS)
+coverage: CXXFLAGS := $(CFLAGS)
+werror: CXXFLAGS := $(CFLAGS)
 
 LDLIBS := -lm -lpthread -lstdc++
 all: LDFLAGS := -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=null -fsanitize=bounds-strict -fstack-protector-all
